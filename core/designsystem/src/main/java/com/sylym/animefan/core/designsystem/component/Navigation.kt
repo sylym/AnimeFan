@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
  * @param icon 项目图标内容
  * @param modifier 要应用于项目的modifier
  * @param selectedIcon 当选中时的项目图标内容
- * @param enabled 控制项目的启用状态。 当`false`时，项目将不可点击，并且对辅助功能服务不可用。
+ * @param enabled 控制项目的启用状态。 当`false`时，项目将不可点击，并且对辅助功能服务不可用
  * @param label 项目文本标签内容
  * @param alwaysShowLabel 是否始终显示此项目的标签。如果为false，则只有选择此项目时才会显示标签
  */

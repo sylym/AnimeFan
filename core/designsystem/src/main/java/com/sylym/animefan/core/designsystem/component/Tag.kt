@@ -1,20 +1,4 @@
-/*
- * Copyright 2022 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.google.samples.apps.nowinandroid.core.designsystem.component
+package com.sylym.animefan.core.designsystem.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.ButtonDefaults
@@ -25,8 +9,17 @@ import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
+/**
+ * Anime Fan标签。 Wraps Material 3
+ *
+ * @param modifier 要应用于标签的modifier
+ * @param followed 标签是否已关注，关注的标签将使用主题的主要颜色，未关注的标签将使用主题的表面颜色
+ * @param onClick 当标签被点击时要调用的回调
+ * @param enabled 控制标签的启用状态。 当`false`时，标签将不可点击，并且对辅助功能服务不可用
+ * @param text 标签文本内容
+ */
 @Composable
-fun NiaTopicTag(
+fun AnimeFanTopicTag(
     modifier: Modifier = Modifier,
     followed: Boolean,
     onClick: () -> Unit,
@@ -38,7 +31,7 @@ fun NiaTopicTag(
             MaterialTheme.colorScheme.primaryContainer
         } else {
             MaterialTheme.colorScheme.surfaceVariant.copy(
-                alpha = NiaTagDefaults.UnfollowedTopicTagContainerAlpha,
+                alpha = AnimeFanTagDefaults.UnfollowedTopicTagContainerAlpha,
             )
         }
         TextButton(
@@ -48,7 +41,7 @@ fun NiaTopicTag(
                 containerColor = containerColor,
                 contentColor = contentColorFor(backgroundColor = containerColor),
                 disabledContainerColor = MaterialTheme.colorScheme.onSurface.copy(
-                    alpha = NiaTagDefaults.DisabledTopicTagContainerAlpha,
+                    alpha = AnimeFanTagDefaults.DisabledTopicTagContainerAlpha,
                 ),
             ),
         ) {
@@ -60,12 +53,12 @@ fun NiaTopicTag(
 }
 
 /**
- * Now in Android tag default values.
+ * Anime Fan标签默认值
  */
-object NiaTagDefaults {
+object AnimeFanTagDefaults {
     const val UnfollowedTopicTagContainerAlpha = 0.5f
 
-    // TODO: File bug
-    // Button disabled container alpha value not exposed by ButtonDefaults
+    // TODO: 文件bug
+    // ButtonDefaults未公开按钮禁用容器的alpha值
     const val DisabledTopicTagContainerAlpha = 0.12f
 }

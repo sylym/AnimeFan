@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.google.samples.apps.nowinandroid.core.designsystem.component
+package com.sylym.animefan.core.designsystem.component
 
 import androidx.annotation.StringRes
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -21,7 +21,7 @@ import com.sylym.animefan.core.designsystem.icon.AnimeFanIcons
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NiaTopAppBar(
+fun AnimeFanTopAppBar(
     @StringRes titleRes: Int,
     navigationIcon: ImageVector,
     navigationIconContentDescription: String?,
@@ -53,16 +53,16 @@ fun NiaTopAppBar(
             }
         },
         colors = colors,
-        modifier = modifier.testTag("niaTopAppBar"),
+        modifier = modifier.testTag("AnimeFanTopAppBar"),
     )
 }
 
 /**
- * Top app bar with action, displayed on the right
+ * 带操作的顶部应用栏，显示在右侧
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NiaTopAppBar(
+fun AnimeFanTopAppBar(
     @StringRes titleRes: Int,
     actionIcon: ImageVector,
     actionIconContentDescription: String?,
@@ -82,15 +82,15 @@ fun NiaTopAppBar(
             }
         },
         colors = colors,
-        modifier = modifier.testTag("niaTopAppBar"),
+        modifier = modifier.testTag("AnimeFanTopAppBar"),
     )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview("Top App Bar")
 @Composable
-private fun NiaTopAppBarPreview() {
-    NiaTopAppBar(
+private fun AnimeFanTopAppBarPreview() {
+    AnimeFanTopAppBar(
         titleRes = android.R.string.untitled,
         navigationIcon = AnimeFanIcons.Search,
         navigationIconContentDescription = "Navigation icon",

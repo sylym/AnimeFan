@@ -15,17 +15,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 /**
- * Now in Android tab. Wraps Material 3 [Tab] and shifts text label down.
+ * Anime Fan选项卡。 Wraps Material 3 [Tab] 并下移文本标签
  *
- * @param selected Whether this tab is selected or not.
- * @param onClick The callback to be invoked when this tab is selected.
- * @param modifier Modifier to be applied to the tab.
- * @param enabled Controls the enabled state of the tab. When `false`, this tab will not be
- * clickable and will appear disabled to accessibility services.
- * @param text The text label content.
+ * @param selected 选项卡是否被选中
+ * @param onClick 当选中此选项卡时要调用的回调
+ * @param modifier 要应用于选项卡的modifier
+ * @param enabled 控制选项卡的启用状态。 当为`false`时，此选项卡将不可点击，并且对辅助功能服务不可用
+ * @param text 文本标签内容
  */
 @Composable
-fun NiaTab(
+fun AnimeFanTab(
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -42,7 +41,7 @@ fun NiaTab(
             ProvideTextStyle(
                 value = style,
                 content = {
-                    Box(modifier = Modifier.padding(top = NiaTabDefaults.TabTopPadding)) {
+                    Box(modifier = Modifier.padding(top = AnimeFanTabDefaults.TabTopPadding)) {
                         text()
                     }
                 },
@@ -52,15 +51,15 @@ fun NiaTab(
 }
 
 /**
- * Now in Android tab row. Wraps Material 3 [TabRow].
+ * Anime Fan选项卡行。 Wraps Material 3 [TabRow].
  *
- * @param selectedTabIndex The index of the currently selected tab.
- * @param modifier Modifier to be applied to the tab row.
- * @param tabs The tabs inside this tab row. Typically this will be multiple [NiaTab]s. Each element
- * inside this lambda will be measured and placed evenly across the row, each taking up equal space.
+ * @param selectedTabIndex 当前所选选项卡的索引
+ * @param modifier 要应用于选项卡行的modifier
+ * @param tabs 此选项卡行中的选项卡。通常情况下，这将是多个[AnimeFanTab]。
+ * 这个lambda中的每个元素都将被测量并均匀地放置在行中，每个元素都占据相等的空间
  */
 @Composable
-fun NiaTabRow(
+fun AnimeFanTabRow(
     selectedTabIndex: Int,
     modifier: Modifier = Modifier,
     tabs: @Composable () -> Unit,
@@ -81,6 +80,6 @@ fun NiaTabRow(
     )
 }
 
-object NiaTabDefaults {
+object AnimeFanTabDefaults {
     val TabTopPadding = 7.dp
 }

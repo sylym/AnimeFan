@@ -1,20 +1,4 @@
-/*
- * Copyright 2022 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.google.samples.apps.nowinandroid.core.designsystem.component
+package com.sylym.animefan.core.designsystem.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -31,19 +15,17 @@ import androidx.compose.ui.unit.dp
 import com.sylym.animefan.core.designsystem.icon.AnimeFanIcons
 
 /**
- * Now in Android view toggle button with included trailing icon as well as compact and expanded
- * text label content slots.
+ * 带有引导图标以及展开和收起的文本标签内容槽的Anime Fan视图切换按钮
  *
- * @param expanded Whether the view toggle is currently in expanded mode or compact mode.
- * @param onExpandedChange Called when the user clicks the button and toggles the mode.
- * @param modifier Modifier to be applied to the button.
- * @param enabled Controls the enabled state of the button. When `false`, this button will not be
- * clickable and will appear disabled to accessibility services.
- * @param compactText The text label content to show in expanded mode.
- * @param expandedText The text label content to show in compact mode.
+ * @param expanded 切换按钮是否处于展开模式
+ * @param onExpandedChange 当用户切换按钮时要调用的回调
+ * @param modifier 要应用于按钮的modifier
+ * @param enabled 控制按钮的启用状态。 当`false`时，按钮将不可点击，并且对辅助功能服务不可用
+ * @param compactText 在收起模式下，要显示的文本标签内容
+ * @param expandedText 在展开模式下，要显示的文本标签内容
  */
 @Composable
-fun NiaViewToggleButton(
+fun AnimeFanViewToggleButton(
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
@@ -58,9 +40,9 @@ fun NiaViewToggleButton(
         colors = ButtonDefaults.textButtonColors(
             contentColor = MaterialTheme.colorScheme.onBackground,
         ),
-        contentPadding = NiaViewToggleDefaults.ViewToggleButtonContentPadding,
+        contentPadding = AnimeFanViewToggleDefaults.ViewToggleButtonContentPadding,
     ) {
-        NiaViewToggleButtonContent(
+        AnimeFanViewToggleButtonContent(
             text = if (expanded) expandedText else compactText,
             trailingIcon = {
                 Icon(
@@ -73,14 +55,13 @@ fun NiaViewToggleButton(
 }
 
 /**
- * Internal Now in Android view toggle button content layout for arranging the text label and
- * trailing icon.
+ * Anime Fan视图切换按钮内容布局，用于排列文本标签和引导图标
  *
- * @param text The button text label content.
- * @param trailingIcon The button trailing icon content. Default is `null` for no trailing icon.
+ * @param text 按钮文本标签内容
+ * @param trailingIcon 按钮引导图标内容。默认值为“null”表示无引导图标
  */
 @Composable
-private fun NiaViewToggleButtonContent(
+private fun AnimeFanViewToggleButtonContent(
     text: @Composable () -> Unit,
     trailingIcon: @Composable (() -> Unit)? = null,
 ) {
@@ -106,11 +87,11 @@ private fun NiaViewToggleButtonContent(
 }
 
 /**
- * Now in Android view toggle default values.
+ * Anime Fan视图切换按钮默认值
  */
-object NiaViewToggleDefaults {
-    // TODO: File bug
-    // Various default button padding values aren't exposed via ButtonDefaults
+object AnimeFanViewToggleDefaults {
+    // TODO: 文件bug
+    // 各种默认按钮填充值不会通过ButtonDefaults公开
     val ViewToggleButtonContentPadding =
         PaddingValues(
             start = 16.dp,
