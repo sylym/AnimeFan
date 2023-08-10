@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.sylym.animefan.core.designsystem.icon.AnimeFanIcons
 
 /**
- * Anime Fan过滤标签，包括引导复选图标以及文本内容槽
+ * 带有引导复选图标以及文本内容槽的Anime Fan过滤标签
  *
  * @param selected 标签是否被选中
  * @param onSelectedChange 当用户单击标签并改变选中状态时的回调

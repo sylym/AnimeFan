@@ -15,22 +15,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 /**
- * Now in Android navigation bar item with icon and label content slots. Wraps Material 3
+ * 带有图标和标签内容槽的Anime Fan导航栏项目。 Wraps Material 3
  * [NavigationBarItem].
  *
- * @param selected Whether this item is selected.
- * @param onClick The callback to be invoked when this item is selected.
- * @param icon The item icon content.
- * @param modifier Modifier to be applied to this item.
- * @param selectedIcon The item icon content when selected.
- * @param enabled controls the enabled state of this item. When `false`, this item will not be
- * clickable and will appear disabled to accessibility services.
- * @param label The item text label content.
- * @param alwaysShowLabel Whether to always show the label for this item. If false, the label will
- * only be shown when this item is selected.
+ * @param selected 项目是否已选择
+ * @param onClick 当选择项目时要调用的回调
+ * @param icon 项目图标内容
+ * @param modifier 要应用于项目的modifier
+ * @param selectedIcon 当选中时的项目图标内容
+ * @param enabled 控制项目的启用状态。 当`false`时，项目将不可点击，并且对辅助功能服务不可用。
+ * @param label 项目文本标签内容
+ * @param alwaysShowLabel 是否始终显示此项目的标签。如果为false，则只有选择此项目时才会显示标签
  */
 @Composable
-fun RowScope.NiaNavigationBarItem(
+fun RowScope.AnimeFanNavigationBarItem(
     selected: Boolean,
     onClick: () -> Unit,
     icon: @Composable () -> Unit,
@@ -49,52 +47,49 @@ fun RowScope.NiaNavigationBarItem(
         label = label,
         alwaysShowLabel = alwaysShowLabel,
         colors = NavigationBarItemDefaults.colors(
-            selectedIconColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedIconColor = NiaNavigationDefaults.navigationContentColor(),
-            selectedTextColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedTextColor = NiaNavigationDefaults.navigationContentColor(),
-            indicatorColor = NiaNavigationDefaults.navigationIndicatorColor(),
+            selectedIconColor = AnimeFanNavigationDefaults.navigationSelectedItemColor(),
+            unselectedIconColor = AnimeFanNavigationDefaults.navigationContentColor(),
+            selectedTextColor = AnimeFanNavigationDefaults.navigationSelectedItemColor(),
+            unselectedTextColor = AnimeFanNavigationDefaults.navigationContentColor(),
+            indicatorColor = AnimeFanNavigationDefaults.navigationIndicatorColor(),
         ),
     )
 }
 
 /**
- * Now in Android navigation bar with content slot. Wraps Material 3 [NavigationBar].
+ * 带有内容槽的Anime Fan导航栏。 Wraps Material 3 [NavigationBar]
  *
- * @param modifier Modifier to be applied to the navigation bar.
- * @param content Destinations inside the navigation bar. This should contain multiple
- * [NavigationBarItem]s.
+ * @param modifier 要应用于导航栏的modifier
+ * @param content 要在导航栏中显示的内容。这应该是一系列[NavigationBarItem]
  */
 @Composable
-fun NiaNavigationBar(
+fun AnimeFanNavigationBar(
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) {
     NavigationBar(
         modifier = modifier,
-        contentColor = NiaNavigationDefaults.navigationContentColor(),
+        contentColor = AnimeFanNavigationDefaults.navigationContentColor(),
         tonalElevation = 0.dp,
         content = content,
     )
 }
 
 /**
- * Now in Android navigation rail item with icon and label content slots. Wraps Material 3
+ * 带有图标和标签内容槽的Anime Fan竖版导航栏项目。 Wraps Material 3
  * [NavigationRailItem].
  *
- * @param selected Whether this item is selected.
- * @param onClick The callback to be invoked when this item is selected.
- * @param icon The item icon content.
- * @param modifier Modifier to be applied to this item.
- * @param selectedIcon The item icon content when selected.
- * @param enabled controls the enabled state of this item. When `false`, this item will not be
- * clickable and will appear disabled to accessibility services.
- * @param label The item text label content.
- * @param alwaysShowLabel Whether to always show the label for this item. If false, the label will
- * only be shown when this item is selected.
+ * @param selected 项目是否已选择
+ * @param onClick 当选择项目时要调用的回调
+ * @param icon 项目图标内容
+ * @param modifier 要应用于项目的modifier
+ * @param selectedIcon 当选中时的项目图标内容
+ * @param enabled 控制项目的启用状态。 当`false`时，项目将不可点击，并且对辅助功能服务不可用。
+ * @param label 项目文本标签内容
+ * @param alwaysShowLabel 是否始终显示此项目的标签。如果为false，则只有选择此项目时才会显示标签
  */
 @Composable
-fun NiaNavigationRailItem(
+fun AnimeFanNavigationRailItem(
     selected: Boolean,
     onClick: () -> Unit,
     icon: @Composable () -> Unit,
@@ -113,25 +108,24 @@ fun NiaNavigationRailItem(
         label = label,
         alwaysShowLabel = alwaysShowLabel,
         colors = NavigationRailItemDefaults.colors(
-            selectedIconColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedIconColor = NiaNavigationDefaults.navigationContentColor(),
-            selectedTextColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedTextColor = NiaNavigationDefaults.navigationContentColor(),
-            indicatorColor = NiaNavigationDefaults.navigationIndicatorColor(),
+            selectedIconColor = AnimeFanNavigationDefaults.navigationSelectedItemColor(),
+            unselectedIconColor = AnimeFanNavigationDefaults.navigationContentColor(),
+            selectedTextColor = AnimeFanNavigationDefaults.navigationSelectedItemColor(),
+            unselectedTextColor = AnimeFanNavigationDefaults.navigationContentColor(),
+            indicatorColor = AnimeFanNavigationDefaults.navigationIndicatorColor(),
         ),
     )
 }
 
 /**
- * Now in Android navigation rail with header and content slots. Wraps Material 3 [NavigationRail].
+ * 带有标题和内容槽的Anime Fan竖版导航栏。 Wraps Material 3 [NavigationRail].
  *
- * @param modifier Modifier to be applied to the navigation rail.
- * @param header Optional header that may hold a floating action button or a logo.
- * @param content Destinations inside the navigation rail. This should contain multiple
- * [NavigationRailItem]s.
+ * @param modifier 要应用于竖版导航栏的modifier
+ * @param header 可选页眉，可容纳浮动操作按钮或徽标
+ * @param content 要在竖版导航栏中显示的内容。这应该是一系列[NavigationRailItem]
  */
 @Composable
-fun NiaNavigationRail(
+fun AnimeFanNavigationRail(
     modifier: Modifier = Modifier,
     header: @Composable (ColumnScope.() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
@@ -139,16 +133,16 @@ fun NiaNavigationRail(
     NavigationRail(
         modifier = modifier,
         containerColor = Color.Transparent,
-        contentColor = NiaNavigationDefaults.navigationContentColor(),
+        contentColor = AnimeFanNavigationDefaults.navigationContentColor(),
         header = header,
         content = content,
     )
 }
 
 /**
- * Now in Android navigation default values.
+ * Anime Fan导航栏默认值
  */
-object NiaNavigationDefaults {
+object AnimeFanNavigationDefaults {
     @Composable
     fun navigationContentColor() = MaterialTheme.colorScheme.onSurfaceVariant
 
