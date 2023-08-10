@@ -16,4 +16,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "animefan"
 include(":app")
+include(":core:designsystem")
  
