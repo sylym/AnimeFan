@@ -29,25 +29,23 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.google.samples.apps.nowinandroid.core.designsystem.component.scrollbar.Scrollbar
-import com.google.samples.apps.nowinandroid.core.designsystem.component.scrollbar.ScrollbarState
 import com.sylym.animefan.core.designsystem.component.scrollbar.ThumbState.Active
 import com.sylym.animefan.core.designsystem.component.scrollbar.ThumbState.Dormant
 import com.sylym.animefan.core.designsystem.component.scrollbar.ThumbState.Inactive
 import kotlinx.coroutines.delay
 
 /**
- * The time period for showing the scrollbar thumb after interacting with it, before it fades away
+ * 在与滚动条thumb交互后，在其逐渐消失之前显示滚动条thumb的时间段
  */
 private const val SCROLLBAR_INACTIVE_TO_DORMANT_TIME_IN_MS = 2_000L
 
 /**
- * A [Scrollbar] that allows for fast scrolling of content by dragging its thumb.
- * Its thumb disappears when the scrolling container is dormant.
- * @param modifier a [Modifier] for the [Scrollbar]
- * @param state the driving state for the [Scrollbar]
- * @param orientation the orientation of the scrollbar
- * @param onThumbMoved the fast scroll implementation
+ * 允许通过拖动thumb快速滚动内容的 [Scrollbar]
+ * 当滚动容器处于休眠状态时，thumb消失
+ * @param modifier 要应用于[Scrollbar]的[Modifier]
+ * @param state [Scrollbar]的驱动状态
+ * @param orientation 滚动条的方向
+ * @param onThumbMoved 快速滚动实现
  */
 @Composable
 fun ScrollableState.DraggableScrollbar(
@@ -73,11 +71,11 @@ fun ScrollableState.DraggableScrollbar(
 }
 
 /**
- * A simple [Scrollbar].
- * Its thumb disappears when the scrolling container is dormant.
- * @param modifier a [Modifier] for the [Scrollbar]
- * @param state the driving state for the [Scrollbar]
- * @param orientation the orientation of the scrollbar
+ * 一个简单的[Scrollbar]，不能拖动
+ * 当滚动容器处于休眠状态时，thumb消失
+ * @param modifier 要应用于[Scrollbar]的[Modifier]
+ * @param state [Scrollbar]的驱动状态
+ * @param orientation 滚动条的方向
  */
 @Composable
 fun ScrollableState.DecorativeScrollbar(
@@ -101,7 +99,7 @@ fun ScrollableState.DecorativeScrollbar(
 }
 
 /**
- * A scrollbar thumb that is intended to also be a touch target for fast scrolling.
+ * 一种滚动条thumb，也可以作为快速滚动的触摸目标
  */
 @Composable
 private fun ScrollableState.DraggableScrollbarThumb(
@@ -126,7 +124,7 @@ private fun ScrollableState.DraggableScrollbarThumb(
 }
 
 /**
- * A decorative scrollbar thumb used solely for communicating a user's position in a list.
+ * 装饰性滚动条thumb，仅用于传达用户在列表中的位置
  */
 @Composable
 private fun ScrollableState.DecorativeScrollbarThumb(
@@ -151,8 +149,8 @@ private fun ScrollableState.DecorativeScrollbarThumb(
 }
 
 /**
- * The color of the scrollbar thumb as a function of its interaction state.
- * @param interactionSource source of interactions in the scrolling container
+ * 滚动条缩略图的颜色作为其交互状态的函数
+ * @param interactionSource 滚动容器中的交互源
  */
 @Composable
 private fun ScrollableState.scrollbarThumbColor(

@@ -1,20 +1,4 @@
-/*
- * Copyright 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.google.samples.apps.nowinandroid.core.designsystem.component.scrollbar
+package com.sylym.animefan.core.designsystem.component.scrollbar
 
 import androidx.compose.foundation.gestures.ScrollableState
 import androidx.compose.runtime.Composable
@@ -30,13 +14,12 @@ import kotlin.math.abs
 import kotlin.math.min
 
 /**
- * Calculates the [ScrollbarState] for lazy layouts.
- * @param itemsAvailable the total amount of items available to scroll in the layout.
- * @param visibleItems a list of items currently visible in the layout.
- * @param firstVisibleItemIndex a function for interpolating the first visible index in the lazy layout
- * as scrolling progresses for smooth and linear scrollbar thumb progression.
+ * 计算惰性布局的 [ScrollbarState]
+ * @param itemsAvailable 可在布局中滚动的项目总数
+ * @param visibleItems 布局中当前可见的项目列表
+ * @param firstVisibleItemIndex 函数用于在滚动过程中插入延迟布局中的第一个可见索引，以实现平滑和线性的滚动条thumb进度
  * [itemsAvailable].
- * @param reverseLayout if the items in the backing lazy layout are laid out in reverse order.
+ * @param reverseLayout 如果后备惰性布局中的项目以相反的顺序布局
  * */
 @Composable
 internal inline fun <LazyState : ScrollableState, LazyStateItem> LazyState.scrollbarState(
@@ -92,18 +75,14 @@ internal inline fun <LazyState : ScrollableState, LazyStateItem> LazyState.scrol
 }
 
 /**
- * Linearly interpolates the index for the first item in [visibleItems] for smooth scrollbar
- * progression.
- * @param visibleItems a list of items currently visible in the layout.
- * @param itemSize a lookup function for the size of an item in the layout.
- * @param offset a lookup function for the offset of an item relative to the start of the view port.
- * @param nextItemOnMainAxis a lookup function for the next item on the main axis in the direction
- * of the scroll.
- * @param itemIndex a lookup function for index of an item in the layout relative to
- * the total amount of items available.
+ * 线性插值 [visibleItems] 中第一项的索引，以实现平滑的滚动条进度
+ * @param visibleItems 布局中当前可见的项目列表
+ * @param itemSize 布局中项目大小的查找函数
+ * @param offset 一个查找函数，用于查找项目相对于视口起点的偏移量
+ * @param nextItemOnMainAxis 在滚动方向上主轴上查找下一个项目的查找函数
+ * @param itemIndex 布局中项目相对于可用项目总数的索引的查找函数
  *
- * @return a [Float] in the range [firstItemPosition..nextItemPosition) where nextItemPosition
- * is the index of the consecutive item along the major axis.
+ * @return [Float] 在 firstItemPosition.nextItemPosition 其中 nextItemPosition 是沿主轴的连续项目的索引
  * */
 internal inline fun <LazyState : ScrollableState, LazyStateItem> LazyState.interpolateFirstItemIndex(
     visibleItems: List<LazyStateItem>,
@@ -133,11 +112,11 @@ internal inline fun <LazyState : ScrollableState, LazyStateItem> LazyState.inter
 }
 
 /**
- * Returns the percentage of an item that is currently visible in the view port.
- * @param itemSize the size of the item
- * @param itemStartOffset the start offset of the item relative to the view port start
- * @param viewportStartOffset the start offset of the view port
- * @param viewportEndOffset the end offset of the view port
+ * 返回当前在视口中可见的项的百分比
+ * @param itemSize 项目的大小
+ * @param itemStartOffset 项目相对于视口开始的起始偏移量
+ * @param viewportStartOffset 视口的起始偏移量
+ * @param viewportEndOffset 视口的结束偏移量
  */
 internal fun itemVisibilityPercentage(
     itemSize: Int,

@@ -1,20 +1,4 @@
-/*
- * Copyright 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.google.samples.apps.nowinandroid.core.designsystem.component.scrollbar
+package com.sylym.animefan.core.designsystem.component.scrollbar
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.gestures.Orientation
@@ -62,19 +46,17 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * The delay between scrolls when a user long presses on the scrollbar track to initiate a scroll
- * instead of dragging the scrollbar thumb.
+ * 当用户长按滚动条track以启动滚动而不是拖动滚动条thumb时滚动之间的延迟。
  */
 private const val SCROLLBAR_PRESS_DELAY_MS = 10L
 
 /**
- * The percentage displacement of the scrollbar when scrolled by long presses on the scrollbar
- * track.
+ * 长按滚动条track时滚动条的百分比位移。
  */
 private const val SCROLLBAR_PRESS_DELTA_PCT = 0.02f
 
 /**
- * Class definition for the core properties of a scroll bar
+ * 滚动条核心属性的类定义
  */
 @Immutable
 @JvmInline
@@ -90,7 +72,7 @@ value class ScrollbarState internal constructor(
 }
 
 /**
- * Class definition for the core properties of a scroll bar track
+ * 滚动条track核心属性的类定义
  */
 @Immutable
 @JvmInline
@@ -104,12 +86,10 @@ private value class ScrollbarTrack(
 }
 
 /**
- * Creates a [ScrollbarState] with the listed properties
- * @param thumbSizePercent the thumb size of the scrollbar as a percentage of the total track size.
- *  Refers to either the thumb width (for horizontal scrollbars)
- *  or height (for vertical scrollbars).
- * @param thumbMovedPercent the distance the thumb has traveled as a percentage of total
- * track size.
+ * 使用列出的属性创建 [ScrollbarState]
+ * @param thumbSizePercent 滚动条thumb大小占track大小的百分比
+ * 指thumb宽度（对于水平滚动条）或高度（对于垂直滚动条）
+ * @param thumbMovedPercent thumb行进的距离占track大小的百分比
  */
 fun ScrollbarState(
     thumbSizePercent: Float,
@@ -122,25 +102,25 @@ fun ScrollbarState(
 )
 
 /**
- * Returns the thumb size of the scrollbar as a percentage of the total track size
+ * 返回滚动条thumb大小（占track大小的百分比）
  */
 val ScrollbarState.thumbSizePercent
     get() = unpackFloat1(packedValue)
 
 /**
- * Returns the distance the thumb has traveled as a percentage of total track size
+ * 返回thumb行进的距离占track大小的百分比
  */
 val ScrollbarState.thumbMovedPercent
     get() = unpackFloat2(packedValue)
 
 /**
- * Returns the size of the scrollbar track in pixels
+ * 返回滚动条track的大小（以像素为单位）
  */
 private val ScrollbarTrack.size
     get() = unpackFloat2(packedValue) - unpackFloat1(packedValue)
 
 /**
- * Returns the position of the scrollbar thumb on the track as a percentage
+ * 以百分比形式返回滚动条thumb在track上的位置
  */
 private fun ScrollbarTrack.thumbPosition(
     dimension: Float,
@@ -153,7 +133,7 @@ private fun ScrollbarTrack.thumbPosition(
 )
 
 /**
- * Returns the value of [offset] along the axis specified by [this]
+ * 返回沿 [this] 指定的轴的 [offset] 值
  */
 internal fun Orientation.valueOf(offset: Offset) = when (this) {
     Orientation.Horizontal -> offset.x
@@ -161,7 +141,7 @@ internal fun Orientation.valueOf(offset: Offset) = when (this) {
 }
 
 /**
- * Returns the value of [intSize] along the axis specified by [this]
+ * 沿 [this] 指定的轴返回 [intSize] 的值
  */
 internal fun Orientation.valueOf(intSize: IntSize) = when (this) {
     Orientation.Horizontal -> intSize.width
@@ -169,7 +149,7 @@ internal fun Orientation.valueOf(intSize: IntSize) = when (this) {
 }
 
 /**
- * Returns the value of [intOffset] along the axis specified by [this]
+ * 沿 [this] 指定的轴返回 [intOffset] 的值
  */
 internal fun Orientation.valueOf(intOffset: IntOffset) = when (this) {
     Orientation.Horizontal -> intOffset.x
@@ -177,14 +157,13 @@ internal fun Orientation.valueOf(intOffset: IntOffset) = when (this) {
 }
 
 /**
- * A Composable for drawing a scrollbar
- * @param orientation the scroll direction of the scrollbar
- * @param state the state describing the position of the scrollbar
- * @param minThumbSize the minimum size of the scrollbar thumb
- * @param interactionSource allows for observing the state of the scroll bar
- * @param thumb a composable for drawing the scrollbar thumb
- * @param onThumbMoved an function for reacting to scroll bar displacements caused by direct
- * interactions on the scrollbar thumb by the user, for example implementing a fast scroll
+ * 用于绘制滚动条的可组合项
+ * @param orientation 滚动条的滚动方向
+ * @param state 描述滚动条位置的状态
+ * @param minThumbSize 滚动条thumb的最小大小
+ * @param interactionSource 允许观察滚动条的状态
+ * @param thumb 用于绘制滚动条thumb的可组合项
+ * @param onThumbMoved 用于响应由用户在滚动条thumb上的直接交互引起的滚动条位移的函数，例如实现快速滚动
  */
 @Composable
 fun Scrollbar(
@@ -198,13 +177,11 @@ fun Scrollbar(
 ) {
     val localDensity = LocalDensity.current
 
-    // Using Offset.Unspecified and Float.NaN instead of null
-    // to prevent unnecessary boxing of primitives
+    // 使用Offset. Unspecified和Float. NaN而不是null来防止不必要的基元装箱
     var pressedOffset by remember { mutableStateOf(Offset.Unspecified) }
     var draggedOffset by remember { mutableStateOf(Offset.Unspecified) }
 
-    // Used to immediately show drag feedback in the UI while the scrolling implementation
-    // catches up
+    // 用于跟踪滚动条的交互状态
     var interactionThumbTravelPercent by remember { mutableStateOf(Float.NaN) }
 
     var track by remember { mutableStateOf(ScrollbarTrack(packedValue = 0)) }
@@ -226,7 +203,7 @@ fun Scrollbar(
         b = track.size - thumbSizePx,
     )
 
-    // scrollbar track container
+    // 滚动条track的可组合项
     Box(
         modifier = modifier
             .run {
@@ -243,17 +220,17 @@ fun Scrollbar(
                     min = scrollbarStartCoordinate + orientation.valueOf(coordinates.size),
                 )
             }
-            // Process scrollbar presses
+            // 处理滚动条按压
             .pointerInput(Unit) {
                 detectTapGestures(
                     onPress = { offset ->
                         try {
-                            // Wait for a long press before scrolling
+                            // 等待长按后滚动
                             withTimeout(viewConfiguration.longPressTimeoutMillis) {
                                 tryAwaitRelease()
                             }
                         } catch (e: TimeoutCancellationException) {
-                            // Start the press triggered scroll
+                            // 启动按压触发的滚动
                             val initialPress = PressInteraction.Press(offset)
                             interactionSource?.tryEmit(initialPress)
 
@@ -265,13 +242,13 @@ fun Scrollbar(
                                 },
                             )
 
-                            // End the press
+                            // 按压触发的滚动结束
                             pressedOffset = Offset.Unspecified
                         }
                     },
                 )
             }
-            // Process scrollbar drags
+            // 处理滚动条拖动
             .pointerInput(Unit) {
                 var dragInteraction: DragInteraction.Start? = null
                 val onDragStart: (Offset) -> Unit = { offset ->
@@ -323,7 +300,7 @@ fun Scrollbar(
             a = with(localDensity) { thumbMovedPx.toDp() },
             b = 0.dp,
         )
-        // scrollbar thumb container
+        // 滚动条thumb的可组合项
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -350,13 +327,12 @@ fun Scrollbar(
 
     if (onThumbMoved == null) return
 
-    // State that will be read inside the effects that follow
-    // but will not cause re-triggering of them
+    // 将在随后的效果中读取的状态，但不会导致重新触发它们
     val updatedState by rememberUpdatedState(state)
 
-    // Process presses
+    // 处理按压
     LaunchedEffect(pressedOffset) {
-        // Press ended, reset interactionThumbTravelPercent
+        // 按压结束，重置interactionThumbTravelPercent
         if (pressedOffset == Offset.Unspecified) {
             interactionThumbTravelPercent = Float.NaN
             return@LaunchedEffect
@@ -387,7 +363,7 @@ fun Scrollbar(
         }
     }
 
-    // Process drags
+    // 处理拖动
     LaunchedEffect(draggedOffset) {
         if (draggedOffset == Offset.Unspecified) {
             interactionThumbTravelPercent = Float.NaN

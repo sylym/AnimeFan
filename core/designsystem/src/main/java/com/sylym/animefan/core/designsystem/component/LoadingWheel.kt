@@ -100,7 +100,7 @@ fun AnimeFanLoadingWheel(
             rotate(degrees = index * 30f) {
                 drawLine(
                     color = colorAnimValues[index].value,
-                    // Animates the initially drawn 1 pixel alpha from 0 to 1
+                    // 将最初绘制的 1 像素 alpha 从 0 设置为 1 进行动画处理
                     alpha = if (floatAnimValues[index].value < 1f) 1f else 0f,
                     strokeWidth = 4F,
                     cap = StrokeCap.Round,

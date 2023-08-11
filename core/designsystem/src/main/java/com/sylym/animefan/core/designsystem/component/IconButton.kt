@@ -55,7 +55,7 @@ fun AnimeFanIconToggleButton(
  * Anime Fan图标按钮默认值
  */
 object AnimeFanIconButtonDefaults {
-    // TODO: File bug
-    // IconToggleButton disabled container alpha not exposed by IconButtonDefaults
+    // TODO: 文件bug
+    // IconToggleButton禁用容器 alpha 未由IconButtonDefaults公开
     const val DisabledIconButtonContainerAlpha = 0.12f
 }
