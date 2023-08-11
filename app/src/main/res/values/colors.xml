@@ -3,6 +3,6 @@
     <!-- 状态栏 -->
     <color name="black30">#4D000000</color>
 
-    <color name="ic_launcher_background_tint">#4F8DF2</color>
+    <color name="ic_launcher_background_tint">#1BA260</color>
     <color name="ic_launcher_foreground_tint">#FCFCFC</color>
 </resources>
