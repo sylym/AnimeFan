@@ -1,11 +1,9 @@
 package com.sylym.animefan.core.ui
 
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-import com.google.samples.apps.nowinandroid.core.model.data.DarkThemeConfig
-import com.google.samples.apps.nowinandroid.core.model.data.NewsResource
-import com.google.samples.apps.nowinandroid.core.model.data.Topic
-import com.google.samples.apps.nowinandroid.core.model.data.UserData
-import com.google.samples.apps.nowinandroid.core.model.data.UserNewsResource
+import com.sylym.animefan.core.model.data.DarkThemeConfig
+import com.sylym.animefan.core.model.data.UserData
+import com.sylym.animefan.core.model.data.UserEpisodeResource
 import com.sylym.animefan.core.ui.PreviewParameterData.newsResources
 import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDateTime
@@ -15,7 +13,7 @@ import kotlinx.datetime.toInstant
 /* ktlint-disable max-line-length */
 /**
  * [PreviewParameterProvider](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameterProvider)
- * 提供可组合预览的 [UserNewsResource] 列表。
+ * 提供可组合预览的 [UserEpisodeResource] 列表。
  */
 class UserNewsResourcePreviewParameterProvider : PreviewParameterProvider<List<UserNewsResource>> {
 

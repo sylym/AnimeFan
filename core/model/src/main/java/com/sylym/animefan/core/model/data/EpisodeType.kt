@@ -1,6 +1,6 @@
 package com.sylym.animefan.core.model.data
 
-enum class EpisodesResourceType(
+enum class EpisodeType(
     val serializedName: String,
     val displayText: String,
     // TODO: 描述可能应该是字符串资源
@@ -23,9 +23,9 @@ enum class EpisodesResourceType(
     ),
 }
 
-fun String?.asEpisodesResourceType() = when (this) {
-    null -> EpisodesResourceType.Unknown
-    else -> EpisodesResourceType.values()
+fun String?.asEpisodeType() = when (this) {
+    null -> EpisodeType.Unknown
+    else -> EpisodeType.values()
         .firstOrNull { type -> type.serializedName == this }
-        ?: EpisodesResourceType.Unknown
+        ?: EpisodeType.Unknown
 }

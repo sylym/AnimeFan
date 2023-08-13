@@ -5,11 +5,11 @@ import kotlinx.datetime.Instant
 /**
  * 单集介绍的外部数据层表示形式
  */
-data class EpisodesResource(
+data class Episode(
     val id: String,
     val name: String,
     val nameCN: String,
-    val type: EpisodesResourceType,
+    val type: EpisodeType,
     val num: Int,
     val airDate: Instant,
     val anime: Anime,

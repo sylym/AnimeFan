@@ -5,7 +5,7 @@ package com.sylym.animefan.core.model.data
  */
 data class UserData(
     val followedAnime: Set<String>, // String: animeId
-    val bookmarkedEpisodeResources: Set<String>, // String: episodeId
-    val watchedEpisodeResources: Map<String, WatchedEpisodesResource>, // String: episodeId
+    val bookmarkedEpisodes: Set<String>, // String: episodeId
+    val watchedEpisodes: Map<String, WatchedEpisode>, // String: episodeId
     val darkThemeConfig: DarkThemeConfig,
 )
