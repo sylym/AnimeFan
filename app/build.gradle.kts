@@ -36,6 +36,10 @@ android {
 
 dependencies {
     implementation(project(":core:designsystem"))
+    implementation(project(":core:model"))
+    implementation(project(":core:ui"))
+
+    implementation(project(":feature:animeintro"))
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
