@@ -8,6 +8,7 @@ import kotlinx.datetime.Instant
 data class Anime(
     val id: String,
     val name: String,
+    val nameCN: String,
     val alias: List<String>,
     val date: Instant,
     val score: Float,

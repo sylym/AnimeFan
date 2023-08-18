@@ -7,5 +7,5 @@ data class WatchedEpisode(
     val episodeUrl: String,
     val watchedTime: Long,
     val totalTime: Long,
-    val watchedDate: Instant
+    val watchedDate: Instant,
 )

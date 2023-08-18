@@ -13,6 +13,7 @@ data class UserEpisode internal constructor(
     val type: EpisodeType,
     val num: Int,
     val airDate: Instant,
+    val sourceUrl: Map<String, String>,
     val followableAnime: FollowableAnime,
     val isSaved: Boolean,
     val watchedEpisode: WatchedEpisode? = null,
@@ -25,6 +26,7 @@ data class UserEpisode internal constructor(
         type = episode.type,
         num = episode.num,
         airDate = episode.airDate,
+        sourceUrl = episode.sourceUrl,
         followableAnime = FollowableAnime(
                 anime = episode.anime,
                 isFollowed = userData.followedAnime.contains(episode.anime.id),

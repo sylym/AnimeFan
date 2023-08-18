@@ -13,4 +13,5 @@ data class Episode(
     val num: Int,
     val airDate: Instant,
     val anime: Anime,
+    val sourceUrl: Map<String, String>,
 )
